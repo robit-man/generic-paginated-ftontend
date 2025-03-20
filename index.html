@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Minimal Frontend Example</title>
+    <link rel="stylesheet" href="miniapp-style.css">
+    <style>
+      /* Inline overrides to ensure panels are visible in our minimal example */
+      #container {
+        display: flex;
+        gap: 1em;
+        height: calc(100vh - 4em);
+      }
+      /* Force all panels visible even if CSS originally hides them */
+      #left-panel, #center-panel, #right-panel {
+        display: block !important;
+        padding: 1em;
+      }
+      #left-panel {
+        flex: 1;
+        background: var(--accent-midway);
+      }
+      #center-panel {
+        flex: 2;
+        background: var(--accent-secondary);
+      }
+      #right-panel {
+        flex: 1;
+        background: var(--accent-midway);
+      }
+      header, footer {
+        background: var(--accent-secondary);
+        padding: 1em;
+        text-align: center;
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        // Minimal dynamic behavior: toggle the left sidebar's visibility.
+        const leftPanel = document.getElementById("left-panel");
+        const toggleBtn = document.getElementById("toggle-left");
+        toggleBtn.addEventListener("click", function() {
+          leftPanel.style.display = (leftPanel.style.display === "none" ? "block" : "none");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>Minimal Frontend</h1>
+      <nav>
+        <!-- A button to toggle the left sidebar -->
+        <button id="toggle-left">Toggle Left Sidebar</button>
+      </nav>
+    </header>
+    
+    <div id="container">
+      <div id="left-panel">
+        <p>Left Sidebar Content</p>
+      </div>
+      <div id="center-panel">
+        <p>Main Content Area</p>
+      </div>
+      <div id="right-panel">
+        <p>Right Sidebar Content</p>
+      </div>
+    </div>
+    
+    <footer>
+      <p>Footer</p>
+    </footer>
+  </body>
+</html>
